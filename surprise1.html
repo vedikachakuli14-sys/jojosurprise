@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Happy Birthday 🎂</title>
+
+<style>
+body {
+  font-family: "Comic Sans MS", cursive;
+  text-align: center;
+  background: linear-gradient(135deg, #ffd6e8, #e0f7ff);
+  padding: 30px;
+}
+
+h1 {
+  color: #ff4d88;
+  font-size: 2.8rem;
+  animation: pop 1.2s infinite alternate;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  max-width: 650px;
+  margin: auto;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transition: 0.4s ease;
+}
+
+button {
+  background: #ff80aa;
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #ff4d88;
+  transform: scale(1.05);
+}
+
+.question {
+  font-size: 1.2rem;
+  margin: 15px 0;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Animations */
+@keyframes pop {
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
+}
+</style>
+
+</head>
+<body>
+
+<h1>🎉 Happy Birthday Bestie 🎂</h1>
+
+<!-- Start -->
+<div class="card" id="start">
+  <p>Ready to play a cute birthday game? 💖</p>
+  <button onclick="startGame()">Start 🎀</button>
+</div>
+
+<!-- Q1 -->
+<div class="card hidden" id="q1">
+  <p class="question">Q1: What does Vedika call you? 👀</p>
+  <button onclick="correct('q2')">💖 Jojo</button><br><br>
+  <button onclick="wrong()">😎 Madam</button><br><br>
+  <button onclick="wrong()">🍬 Kajukatli</button>
+</div>
+<!-- Q2 -->
+<div class="card hidden" id="q2">
+  <p class="question">Q2: What does Vedika love in you? 💕</p>
+  <button onclick="wrong()">😊 Sweet</button><br><br>
+  <button onclick="correct('gallery')">🐧 Penguin Walk</button><br><br>
+  <button onclick="wrong()">😁 Smile</button>
+</div>
+<!-- Gallery -->
+<div class="card hidden" id="gallery">
+  <h2>📸 Cute Memory Gallery</h2>
+  <p>Some adorable moments 💕</p>
+
+  <div class="gallery">
+    <img src="D:\VEDIKA\photos4.jpeg">
+    <img src="D:\VEDIKA\photos1.jpeg">
+    <img src="D:\VEDIKA\photos2.jpeg">
+    <img src="D:\VEDIKA\photos3.jpeg">
+  </div>
+
+  <br>
+  <button onclick="nextQ('q3')">Next Surprise 🎁</button>
+</div>
+
+<!-- Final Q -->
+<div class="card hidden" id="q3">
+  <p class="question">Q3: What is common between us? 🧠</p>
+  <button onclick="correct('surprise')">💭 Overthinker</button><br><br>
+  <button onclick="wrong()">🗣️ Yapper</button><br><br>
+  <button onclick="wrong()">🤫 Silent</button>
+</div>
+<!-- Surprise -->
+<div class="card hidden" id="surprise">
+  <h2>🎊 SURPRISE 🎊</h2>
+  <p>
+    You are one of the sweetest, funniest, and kindest person  I know 💕  
+    Thank you for being such a wonderful friend 💖  
+    May your life be filled with happiness, love, success, and cake 🎂✨  
+    Never forget — you are special, appreciated, and amazing
+and also whenever you need me your rasmalaiis always there for kajukatli and madam boss for the fight 🌸👑  
+  </p>
+</div>
+
+<script>
+function startGame() {
+  document.getElementById("start").classList.add("hidden");
+  document.getElementById("q1").classList.remove("hidden");
+}
+
+function nextQ(next) {
+  document.querySelectorAll(".card").forEach(card => card.classList.add("hidden"));
+  document.getElementById(next).classList.remove("hidden");
+}
+
+function showSurprise() {
+  document.querySelectorAll(".card").forEach(card => card.classList.add("hidden"));
+  document.getElementById("surprise").classList.remove("hidden");
+}
+
+function correct(next) {
+  alert("Correct! Vedika approves 😌💖");
+  nextQ(next);
+}
+
+function wrong() {
+  alert("Wrong answer... Vedika is watching 👀😈");
+}
+</script>
+
+</body>
+</html>
